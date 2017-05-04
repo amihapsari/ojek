@@ -1,7 +1,8 @@
 {% extends 'master' %}
 
 {% block content %}
-
+<title>TABEL DRIVER</title>
+</br>
 	<div class="col-md-8 col-md-offset-2">
 		<div class="col-md-offset-2">
 		{% if successMessage %}
@@ -20,22 +21,41 @@
 
 		{% endif %}
 		</div>
+	</br>
+</br>
+
 		<div class="form-horizontal">
-		{{ form.open({ route: 'driverIUD.update', params: {id: drivers.id} }) }}
+		{{ form.open({ route: 'driverIUD.update', params: {id: driver.id} }) }}
 
 			{{csrfField}}
 
 			<div class="form-group">
 				{{ form.label('name','driver Name',{ class: 'col-sm-2 control-label'}) }}
     			<div class="col-sm-6">
-      				{{ form.text('name',drivers.name,{ class: 'form-control'})}}
+      				{{ form.text('name',user.name,{ class: 'form-control'})}}
     			</div>
     		</div>
+
+				<div class="form-group">
+					{{ form.label('userName','User Name',{ class: 'col-sm-2 control-label'}) }}
+						<div class="col-sm-6">
+								{{ form.text('userName',user.userName,{ class: 'form-control'})}}
+						</div>
+					</div>
+
+
+				<div class="form-group">
+					{{ form.label('number','No Telp',{ class: 'col-sm-2 control-label'}) }}
+	    			<div class="col-sm-6">
+	      				{{ form.text('number',user.number,{ class: 'form-control'})}}
+	    			</div>
+	    		</div>
+
 
     		<div class="form-group">
 				{{ form.label('SIM','SIM',{ class: 'col-sm-2 control-label'}) }}
     			<div class="col-sm-6">
-      				{{ form.text('SIM',drivers.SIM,{ class: 'form-control'})}}
+      				{{ form.text('SIM',driver.SIM,{ class: 'form-control'})}}
     			</div>
     		</div>
 
@@ -46,30 +66,31 @@
     			</div>
     		</div>
 
-    		<div class="form-group">
-				{{ form.label('phone_number','Phone Number',{ class: 'col-sm-2 control-label'}) }}
-    			<div class="col-sm-6">
-      				{{ form.text('phone_number',driver.phone_number,{ class: 'form-control'})}}
-    			</div>
-    		</div>
+				<div class="form-group">
+				{{ form.label('licensePlate','licensePlate',{ class: 'col-sm-2 control-label'}) }}
+					<div class="col-sm-6">
+							{{ form.text('license',motor.licensePlate,{ class: 'form-control'})}}
+					</div>
+				</div>
 
-			<div class="form-group">
-				{{ form.label('operational_hour','Operational Hour',{ class: 'col-sm-2 control-label'}) }}
-    			<div class="col-sm-6">
-      				{{ form.text('operational_hour',driver.operational_hour,{ class: 'form-control'})}}
-    			</div>
-    		</div>
+				<div class="form-group">
+				{{ form.label('color','color',{ class: 'col-sm-2 control-label'}) }}
+					<div class="col-sm-6">
+							{{ form.text('color',motor.color,{ class: 'form-control'})}}
+					</div>
+				</div>
 
-    		<div class="form-group">
-				{{ form.label('additional_info','Additional Info',{ class: 'col-sm-2 control-label'}) }}
-    			<div class="col-sm-6">
-      				{{ form.textarea('additional_info',driver.additional_info,{ class: 'form-control', rows:3})}}
-    			</div>
-    		</div>
+				<div class="form-group">
+				{{ form.label('type','type',{ class: 'col-sm-2 control-label'}) }}
+					<div class="col-sm-6">
+							{{ form.text('type',motor.type,{ class: 'form-control'})}}
+					</div>
+				</div>
+
 
     		<div class="form-group">
     			<div class="col-sm-offset-2 col-sm-10">
-    				{{ form.submit('Update','submit', { class: ' btn btn-success'}) }}
+    				{{ form.submit('Update','submit', { class: ' btn btn-primary'}) }}
     			</div>
     		</div>
     	{{ form.close() }}

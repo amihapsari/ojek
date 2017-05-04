@@ -1,0 +1,65 @@
+{% extends 'master' %}
+
+{% block content %}
+<head>
+<title>TABEL MOTOR</title>
+</head>
+<BR>
+	<BR>
+	<div class="col-md-8 col-md-offset-2">
+		<table>
+			<tr>
+				<td style="padding-right: 10px;">
+    				{{ form.open({ route: 'motorIUD.edit', params: {id: motor.id} }) }}
+    					{{ form.button('Update','', { class: 'btn btn-primary '}) }}
+    				{{ form.close() }}
+
+    			</td>
+
+    			<td style="padding-right: 20px;">
+    				{{ form.open({ route: 'motorIUD.destroy', params: {id: motor.id} }) }}
+    					{{csrfField}}
+    					{{ form.button('Delete','', { class: 'btn btn-danger '}) }}
+
+    				{{ form.close() }}
+
+    			</td>
+
+    		</tr>
+		</table>
+		<br>
+		<br>
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th class="col-md-2">id</td>
+					<td class="col-md-6">{{ motor.id }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Create Date</th>
+					<td class="col-md-6">{{ motor.created_at }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Update Date</th>
+					<td class="col-md-6">{{ motor.updated_at }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Name</th>
+					<td class="col-md-6">{{ motor.type}}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">License Plate</th>
+					<td class="col-md-6">{{ motor.licensePlate }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">color</th>
+					<td class="col-md-6">{{ motor.color }}</td>
+				</tr>
+
+
+
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

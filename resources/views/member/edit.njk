@@ -1,0 +1,70 @@
+{% extends 'master' %}
+
+{% block content %}
+
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-offset-2">
+		{% if successMessage %}
+			<div class="alert alert-success alert-dismissable">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong> {{successMessage}}.
+			</div>
+		{% endif %}
+		{% if old('errors') %}
+			<div class="alert alert-danger alert-dismissable">
+				{% for error in old('errors') %}
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<li> {{ error.message }} </li>
+				{% endfor %}
+			</div>
+
+		{% endif %}
+	</br>
+</br>
+		</div>
+		<div class="form-horizontal">
+		{{ form.open({ route: 'memberIUD.update', params: {id: member.id} }) }}
+
+			{{csrfField}}
+
+			<div class="form-group">
+				{{ form.label('name','member Name',{ class: 'col-sm-2 control-label'}) }}
+    			<div class="col-sm-6">
+      				{{ form.text('name',member.name,{ class: 'form-control'})}}
+    			</div>
+    		</div>
+
+				<div class="form-group">
+					{{ form.label('userName','User Name',{ class: 'col-sm-2 control-label'}) }}
+						<div class="col-sm-6">
+								{{ form.text('userName',user.userName,{ class: 'form-control'})}}
+						</div>
+					</div>
+
+			
+    		<div class="form-group">
+				{{ form.label('number','number',{ class: 'col-sm-2 control-label'}) }}
+    			<div class="col-sm-6">
+      				{{ form.text('number',member.number,{ class: 'form-control'})}}
+    			</div>
+    		</div>
+
+    		<div class="form-group">
+				{{ form.label('email','email',{ class: 'col-sm-2 control-label'}) }}
+    			<div class="col-sm-6">
+      				{{ form.text('email',member.email,{ class: 'form-control'})}}
+    			</div>
+    		</div>
+
+
+    		<div class="form-group">
+    			<div class="col-sm-offset-2 col-sm-10">
+    				{{ form.submit('Update','submit', { class: ' btn btn-primary'}) }}
+    			</div>
+    		</div>
+    	{{ form.close() }}
+		</div>
+	</div>
+
+
+{% endblock %}

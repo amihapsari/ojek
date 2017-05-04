@@ -1,0 +1,84 @@
+{% extends 'master' %}
+
+{% block content %}
+<head>
+<title>TABEL Transaction</title>
+</head>
+<BR>
+	<BR>
+	<div class="col-md-8 col-md-offset-2">
+		<table>
+			<tr>
+				<td style="padding-right: 10px;">
+    				{{ form.open({ route: 'transactionIUD.edit', params: {id: transaction.id} }) }}
+    					{{ form.button('Update','', { class: 'btn btn-success '}) }}
+    				{{ form.close() }}
+
+    			</td>
+
+
+
+    			</td>
+					<td style="padding-right: 30px;">
+    				{{ form.open({ route: 'transactionIUD.edit', params: {id: transaction.id} }) }}
+    					{{csrfField}}
+    					{{ form.button('Edit','', { class: 'btn btn-success '}) }}
+
+    				{{ form.close() }}
+    			</td>
+
+    			</td>
+					<td style="padding-right: 30px;">
+    				{{ form.open({ route: 'transactionIUD.edit', params: {id: transaction.id} }) }}
+    					{{csrfField}}
+    					{{ form.button('Edit','', { class: 'btn btn-success '}) }}
+
+    				{{ form.close() }}
+    			</td>
+    		</tr>
+		</table>
+		<br>
+		<br>
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th class="col-md-2">id</td>
+					<td class="col-md-6">{{ transaction.id }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Create Date</th>
+					<td class="col-md-6">{{ transaction.created_at }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Update Date</th>
+					<td class="col-md-6">{{ transaction.updated_at }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Fare</th>
+					<td class="col-md-6">{{ transaction.fare}}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">ID Operator</th>
+					<td class="col-md-6">{{ transaction.idOperator }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">ID Member</th>
+					<td class="col-md-6">{{ transaction.idMember }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">ID Zone</th>
+					<td class="col-md-6">{{ transaction.idZone }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">ID Driver</th>
+					<td class="col-md-6">{{ transaction.idDriver }}</td>
+				</tr>
+
+
+
+
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

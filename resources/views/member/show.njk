@@ -1,24 +1,30 @@
 {% extends 'master' %}
 
 {% block content %}
-
+<head>
+<title>TABEL MEMBER</title>
+</head>
+<BR>
+	<BR>
 	<div class="col-md-8 col-md-offset-2">
 		<table>
 			<tr>
 				<td style="padding-right: 10px;">
-
-    				{{ form.open({ route: 'memberIUD.edit', params: {id: members.id} }) }}
-    					{{ form.button('Update','', { class: 'btn btn-success '}) }}
+    				{{ form.open({ route: 'memberIUD.edit', params: {id: member.id} }) }}
+    					{{ form.button('Update','', { class: 'btn btn-primary'}) }}
     				{{ form.close() }}
 
     			</td>
-    			<td>
-    				{{ form.open({ route: 'memberIUD.destroy', params: {id: members.id} }) }}
+
+    			<td style="padding-right: 20px;">
+    				{{ form.open({ route: 'memberIUD.destroy', params: {id: member.id} }) }}
     					{{csrfField}}
     					{{ form.button('Delete','', { class: 'btn btn-danger '}) }}
 
     				{{ form.close() }}
+
     			</td>
+
     		</tr>
 		</table>
 		<br>
@@ -27,23 +33,24 @@
 			<tbody>
 				<tr>
 					<th class="col-md-2">id</td>
-					<td class="col-md-6">{{ members.id }}</td>
+					<td class="col-md-6">{{ member.id }}</td>
 				</tr>
 				<tr>
 					<th class="col-md-2">Create Date</th>
-					<td class="col-md-6">{{ members.created_at }}</td>
+					<td class="col-md-6">{{ member.created_at }}</td>
 				</tr>
 				<tr>
 					<th class="col-md-2">Update Date</th>
-					<td class="col-md-6">{{ members.updated_at }}</td>
+					<td class="col-md-6">{{ member.updated_at }}</td>
+				</tr>
+				
+				<tr>
+					<th class="col-md-2">KTP</th>
+					<td class="col-md-6">{{ member.KTP }}</td>
 				</tr>
 				<tr>
-					<th class="col-md-2">Name</th>
-					<td class="col-md-6">{{ members.name }}</td>
-				</tr>
-				<tr>
-					<th class="col-md-2">Status</th>
-					<td class="col-md-6">{{ members.status }}</td>
+					<th class="col-md-2">email</th>
+					<td class="col-md-6">{{ member.email }}</td>
 				</tr>
 
 

@@ -1,0 +1,62 @@
+{% extends 'master' %}
+
+{% block content %}
+<head>
+<title>TABEL TRANSACTION</title>
+</head>
+<BR>
+	<BR>
+	<div class="col-md-8 col-md-offset-2">
+		<table>
+			<tr>
+				<td style="padding-right: 10px;">
+    				{{ form.open({ route: 'zoneIUD.edit', params: {id: zone.id} }) }}
+    					{{ form.button('Update','', { class: 'btn btn-primary '}) }}
+    				{{ form.close() }}
+
+    			</td>
+
+    			<td style="padding-right: 20px;">
+    				{{ form.open({ route: 'zoneIUD.destroy', params: {id: zone.id} }) }}
+    					{{csrfField}}
+    					{{ form.button('Delete','', { class: 'btn btn-danger '}) }}
+
+    				{{ form.close() }}
+
+    			</td>
+				
+    		</tr>
+		</table>
+		<br>
+		<br>
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th class="col-md-2">id</td>
+					<td class="col-md-6">{{ zone.id }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Create Date</th>
+					<td class="col-md-6">{{ zone.created_at }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Update Date</th>
+					<td class="col-md-6">{{ zone.updated_at }}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Name</th>
+					<td class="col-md-6">{{ zone.name}}</td>
+				</tr>
+				<tr>
+					<th class="col-md-2">Fare</th>
+					<td class="col-md-6">{{ zone.fare}}</td>
+				</tr>
+
+
+
+
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

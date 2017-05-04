@@ -1,0 +1,46 @@
+{% extends 'master' %}
+
+{% block content %}
+<head>
+<title>TABEL TRANSACTION</title>
+</head>
+<div class="col-md-12 col-md-offset-0">
+  <h3><b>TABEL TRANSACTION</b></h3>
+  </br>
+  </br>
+
+  {{form.open({route:'transactionIUD.create'})}}
+      {{form.button('Create','',{class:'btn btn-success'})}}
+  {{form.close()}}
+
+
+
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Create Date</th>
+		        <th>Update Date</th>
+		        <th>FARE</th>
+					  <th>ID MEMBER</th>
+            <th>ID ZONE</th>
+            <th>ID DRIVER</th>
+          </tr>
+        <thead/>
+        <tbody>
+
+        {% for transaction in transactions %}
+          <tr>
+            <td>{{transaction.id}}</td>
+            <td>{{transaction.created_at }}</td>
+		        <td>{{ transaction.updated_at }}</td>
+		        <td>{{ transaction.fare}}</td>
+		        <td>{{ transaction.idMember}}</td>
+             <td>{{ transaction.idZone}}</td>
+              <td>{{ transaction.idDriver}}</td>
+            <th><a href="transactionIUD/{{transaction.id}}">View</a></th>
+          <tr>
+          {%endfor%}
+          </tbody>
+
+{% endblock %}
